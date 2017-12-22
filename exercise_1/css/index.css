@@ -1,0 +1,45 @@
+
+/* 网页主体 */
+.main{
+    width: 1366px;
+    height: auto;
+    margin: auto;
+    padding: auto;
+    background-color: grey;   
+
+}
+
+
+/* 头部 */
+.header {
+    height: 100px;
+    background-color: hotpink;
+}
+
+
+/* 轮播图 */
+.banner {
+    height: 650px;
+    background-color: bisque;
+}
+
+
+/* 内容区 */
+.content{
+    height: auto;
+}
+
+
+/* 尾部信息 */
+.footer{
+    height: 120px;
+    background-color: forestgreen;
+}
+
+
+
+.header-content .content-content .footer-content{
+    width: 976px;
+    background-color: blue;
+    height: auto;
+}
