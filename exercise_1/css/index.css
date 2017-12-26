@@ -26,7 +26,7 @@
 
 /* 内容区 */
 .content{
-    height: auto;
+    height: 840px;
 }
 
 
@@ -38,8 +38,15 @@
 
 
 
-.header-content .content-content .footer-content{
+.header-content, .content-content, .footer-content{
     width: 976px;
     background-color: blue;
-    height: auto;
+    height: 100%;
+    margin: auto;
+}
+
+.content-frame {
+     /**首页初始高度*/
+     height: 840px;
+     width: 976px;
 }
