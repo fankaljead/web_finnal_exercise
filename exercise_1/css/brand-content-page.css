@@ -1,0 +1,77 @@
+
+.brand-content-title {
+    height: 120px;
+    background: white;
+    text-align: center;
+    color: #000000;
+    font-size: 16px;
+}
+
+.brand-content-pictures {
+    height: auto;
+    background: peru;
+}
+
+.brand-content-title-name a:hover,
+a:active ,a:visited {
+    background-color: #ffffff;
+    color: #0099ff;
+}
+
+.brand-content-title-options ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    line-height: 40px;
+    font-size: 14px;
+    /* height: 100px; */
+    border: 1px solid #0099ff;
+}
+
+.brand-content-title-options li {
+    float: left;
+    padding-left: 20px;
+}
+.brand-content-title-options li
+a:hover,
+a:active,
+a:visited {
+    background-color: #ffffff;
+    color: #996600;
+}
+
+
+.brand-content-pictures-level {
+    height: 32.0%;
+    background: #663300;
+    text-align: center;
+}
+
+.level-left {
+    width: 280px;
+    background: lavender;
+    height: 100%;
+    float: left;
+    margin-right: 68px;
+}
+
+.level-mid {
+    height: 100%;
+    width: 280px;
+    float: left;
+    background: lavender;
+}
+
+.level-right {
+    height: 100%;
+    width: 280px;
+    background: lavender;
+    float: right;
+}
+
+
+
+
+
+

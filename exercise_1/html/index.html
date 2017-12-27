@@ -42,10 +42,15 @@
         </div>
 
         <!-- banner区域 展示轮播图  -->
-        <div class="banner"></div>
+        <div class="banner" id="banner">
+            <!-- 左翻页 -->
+            <img src="../images/turnLeft.png" class="fl mt275" onclick="changeBanner('left')"/>
+            <!-- 右翻页 -->
+            <img src="../images/turnRight.png" class="fr mt275" onclick="changeBanner('right')"/>
+        </div>
 
         <!-- 内容区域 展示主要内容 -->
-        <div class="content">
+        <div class="content" id="content">
             <div class="content-content">
                 <iframe src="index-content.html" frameborder="0" class="content-frame" id="frame"></iframe>
             </div>            
@@ -58,8 +63,7 @@
 
     </div>
 
-    <script src="../js/banner.js">
-        
-    </script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/banner.js"></script>
 </body>
 </html>

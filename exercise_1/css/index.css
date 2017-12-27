@@ -22,7 +22,7 @@
 .banner {
     height: 650px;
     background-color: #ffcccc;
-    background-image: url("../images/banner/banner1.gif");
+    background-image: url("../images/banner/banner1.png");
 }
 
 
@@ -50,6 +50,6 @@
 
 .content-frame {
      /**首页初始高度*/
-     height: 840px;
+     height: 100%;
      width: 976px;
 }

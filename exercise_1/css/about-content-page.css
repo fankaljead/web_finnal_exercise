@@ -1,0 +1,31 @@
+
+
+.about-content-title {
+    height: 80px;
+    background: white;
+    text-align: center;
+    color: #663300;
+    font-size: 18px;
+}
+
+.about-content-main {
+    height: auto;
+    background: peru;
+}
+
+
+.about-content-title-hr {
+    width: 43.5%;
+    height: 2px;
+    background: #663300;
+}
+
+
+
+.hr1 {
+    float: left;
+}
+
+.hr2 {
+    float: right;
+}
