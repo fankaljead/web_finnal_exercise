@@ -13,14 +13,16 @@
 /* 头部 */
 .header {
     height: 100px;
-    background-color: hotpink;
+    /* background-color: hotpink; */
+    background-image: url("../images/header.gif");
 }
 
 
 /* 轮播图 */
 .banner {
     height: 650px;
-    background-color: bisque;
+    background-color: #ffcccc;
+    background-image: url("../images/banner/banner1.gif");
 }
 
 
@@ -33,14 +35,15 @@
 /* 尾部信息 */
 .footer{
     height: 120px;
-    background-color: forestgreen;
+    /* background-color: forestgreen; */
+    background-image: url("../images/footer.gif");
 }
 
 
 
 .header-content, .content-content, .footer-content{
     width: 976px;
-    background-color: blue;
+    /* background-color: blue; */
     height: 100%;
     margin: auto;
 }

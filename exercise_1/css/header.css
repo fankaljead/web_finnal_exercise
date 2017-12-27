@@ -4,6 +4,7 @@ ul {
     padding: 0;
     overflow: hidden;
     line-height: 100px;
+    font-size: 18px;
     height: 100px;
 }
 
@@ -21,7 +22,7 @@ a:visited {
     width: 120px;
     font-weight: bold;
     color: #FFFFFF;
-    background-color: #bebebe;
+    /* background-color: #bebebe; */
     text-align: center;
     padding: 4px;
     text-decoration: none;
@@ -30,5 +31,6 @@ a:visited {
 
 a:hover,
 a:active {
-    background-color: #cc0000;
+    background-color: #ffffff;
+    color: #996600;
 }

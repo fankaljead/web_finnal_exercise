@@ -19,23 +19,23 @@
             <div class="header-content">
                 <ul>
                     <li>
-                        <a href="#index">首页</a>
+                        <a href="#index" name='index-content' onclick="changePage(name)">首页</a>
                     </li>
                     <li>
-                        <a href="#news">品牌和产品</a>
+                        <a href="#brand" name='brand' onclick="changePage(name)">品牌和产品</a>
                     </li>
                     <li>
-                        <a href="#contact">联营合作</a>
+                        <a href="#contact" name='contact' onclick="changePage(name)">联营合作</a>
+                    </li>
+                    
+                    <li class="ml200">
+                        <a href="#service" name='service' onclick="changePage(name)">配套服务</a>
                     </li>
                     <li>
-                        <a href="#about">配套服务</a>
+                        <a href="#info" name='info' onclick="changePage(name)">门店信息</a>
                     </li>
                     <li>
-                        <a href="#about">配套服务</a>
-                    </li><li>
-                        <a href="#about">配套服务</a>
-                    </li><li>
-                        <a href="#about">配套服务</a>
+                        <a href="#about" name='about' onclick="changePage(name)">关于我们</a>
                     </li>
                 </ul>
             </div>
@@ -47,7 +47,7 @@
         <!-- 内容区域 展示主要内容 -->
         <div class="content">
             <div class="content-content">
-                <iframe src="index-content.html" frameborder="0" class="content-frame"></iframe>
+                <iframe src="index-content.html" frameborder="0" class="content-frame" id="frame"></iframe>
             </div>            
         </div>
 
@@ -57,5 +57,9 @@
         </div>
 
     </div>
+
+    <script src="../js/banner.js">
+        
+    </script>
 </body>
 </html>
