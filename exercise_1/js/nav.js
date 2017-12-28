@@ -31,3 +31,27 @@ function changePage(name) {
     }
 
 }
+
+$(document).ready(function () {
+
+   
+
+    $("#aboutUs").mouseover(function () {
+        $(".aboutUs-modal").show();
+    });
+
+    // $(".aboutUs-modal").mouseout(() =>{
+    //     setInterval(() => {
+    //         $(".aboutUs-modal").hide();
+    //     }, 3000);
+    // });
+
+    
+
+    setInterval(() =>{
+        $(".aboutUs-modal").hide();       
+    }, 5000);
+
+    
+
+});

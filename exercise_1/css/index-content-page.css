@@ -15,7 +15,7 @@
 
 .index-content-pictures{
     height: 750px;
-    background: peru;
+    /* background: peru; */
 }
 
 .index-content-title p{
@@ -34,7 +34,7 @@
 
 .index-content-pictures-level{
     height: 370px;
-    background: #663300;
+    /* background: #663300; */
     text-align: center;
 }
 

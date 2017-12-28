@@ -34,3 +34,29 @@ a:active {
     background-color: #ffffff;
     color: #996600;
 }
+
+.aboutUs-modal{
+    width: 130px;
+    height: 70px;
+    /* position: absolute;
+    left: 71%;
+    top: 10%; */
+}
+
+.aboutUs-modal a{
+    color: #000000;
+    line-height: 35px;
+    font-size: 16px;
+}
+
+.aboutUs-modal a:hover,
+a:active {
+    background-color: #996633;
+    color: #fff;
+}
+
+.aboutUs-modal-content{
+    /* height: 35px; */
+    width: 100%;
+}
+

@@ -7,6 +7,21 @@
     font-size: 16px;
 }
 
+.brand-content-title-options-modal {
+    position: absolute;
+    left: 30%;
+    top: 12%;
+    width: 70%;
+    background-color: white;
+    height: 30%;
+}
+
+.brand-content-title-options-modal-title {
+    font-size: 16px;
+    color: #993300;
+    text-align: center;
+}
+
 .brand-content-pictures {
     height: auto;
     background: peru;

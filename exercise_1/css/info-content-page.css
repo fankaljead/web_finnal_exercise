@@ -5,27 +5,47 @@
 }
 
 .info-content-title p{
-    color: #0099ff;
+    /* color: #0099ff; */
     font-size: 16px;
     text-align: center;
     padding-top: 18px;
+}
+
+.showPictures-hover{
+    width: 810px;
+    height: 520px;
+    left: 10%;
+    top: 5%;
+    background: rgba(51, 51, 51, 0.5);
+}
+
+#showPictures-hover-image{
+    margin-left: 14%;
+    margin-top: 7%;    
+}
+
+#showPictures-hover-image-close{
+    position: absolute;
+    left: 94%;
 }
 
 .info-content-main{
     font-size: 14px;
     font-family: "微软雅黑";
     color: #333333;
+    letter-spacing: -0.5px;
+    line-height: 23px;
 }
 
 .info-content-main-leftContent{
     width: 442px;
-    background: #0099ff;
+    /* background: #0099ff; */
     height: 1355px;
 }
 
 .info-content-main-midPic{
     width: 70px;
-    background: white;
+    /* background: white; */
     height: 1355px;
 }
 
@@ -35,6 +55,6 @@
 
 .info-content-main-rightContent {
     width: 442px;
-    background: blue;
+    /* background: blue; */
     height: 1355px;
 }

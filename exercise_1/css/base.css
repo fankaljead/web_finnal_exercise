@@ -108,6 +108,13 @@ acronym {
 .t2 {
     text-indent: 2em;
 }
+.t20{
+    text-indent: 20px;
+}
+
+.lh30{
+    line-height: 30px;
+}
 
 .lh150 {
     line-height: 150%
@@ -184,7 +191,7 @@ acronym {
     height: 1%
 }
 
-. Clearfix {
+.Clearfix {
     display: block;
 }
 
@@ -341,12 +348,40 @@ acronym {
     margin-top: 30px;
 }
 
+.mt40 {
+    margin-top: 40px;
+}
+
 .mt50 {
     margin-top: 50px;
 }
 
+.mt60 {
+    margin-top: 60px;
+}
+
+.mt90 {
+    margin-top: 90px;
+}
+
 .mt100 {
     margin-top: 100px;
+}
+
+.mt110 {
+    margin-top: 110px;
+}
+
+.mt120 {
+    margin-top: 120px;
+}
+
+.mt130 {
+    margin-top: 130px;
+}
+
+.mt190 {
+    margin-top: 190px;
 }
 
 .mt275 {
@@ -563,4 +598,12 @@ acronym {
 
 .pr100 {
     padding-right: 100px;
+}
+
+.top40{
+    top: 40%;
+}
+
+.left90{
+    left: 90%;
 }
