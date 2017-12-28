@@ -1,0 +1,40 @@
+/* 门店信息页面 */
+.info-content-title{
+    height: 60px;
+    background: #fff;   
+}
+
+.info-content-title p{
+    color: #0099ff;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 18px;
+}
+
+.info-content-main{
+    font-size: 14px;
+    font-family: "微软雅黑";
+    color: #333333;
+}
+
+.info-content-main-leftContent{
+    width: 442px;
+    background: #0099ff;
+    height: 1355px;
+}
+
+.info-content-main-midPic{
+    width: 70px;
+    background: white;
+    height: 1355px;
+}
+
+.info-content-main-midPic img{
+    padding-left: 42px;
+}
+
+.info-content-main-rightContent {
+    width: 442px;
+    background: blue;
+    height: 1355px;
+}

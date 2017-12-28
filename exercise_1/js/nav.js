@@ -10,14 +10,21 @@ function changePage(name) {
     frame.src = '../html/' + name + '.html';
 
     switch (name) {
+        //首页
         case 'index-content':
             content.style.height = '840px';
             break;
+        //品牌和产品
         case 'brand':
             content.style.height = '945px';
             break;
+        //关于我们
         case 'about':
             content.style.height = '560px';
+            break; 
+        //门店信息
+        case 'info':
+            content.style.height = '1415px';
             break;
         default:
             break;
