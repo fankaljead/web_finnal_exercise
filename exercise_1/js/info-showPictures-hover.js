@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
 
     //左滑
-    $('#showPictures-hover-image-left').click(()=>{
+    $('#showPictures-hover-image-left').click(function (){
         if (showPictures_hover_image_count > 1){
             var img = '../images/showPicture_big' + (--showPictures_hover_image_count) + '.png';            
             document.getElementById('showPictures-hover-image').src = img ;
@@ -21,7 +21,7 @@ $(document).ready(function () {
     });
 
     //右滑
-    $('#showPictures-hover-image-right').click(() => {
+    $('#showPictures-hover-image-right').click(function(){
         if (showPictures_hover_image_count < 3) {
             var img = '../images/showPicture_big' + (++showPictures_hover_image_count) + '.png';            
             document.getElementById('showPictures-hover-image').src = img ;

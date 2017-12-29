@@ -1,4 +1,4 @@
-ul {
+/* ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -22,7 +22,6 @@ a:visited {
     width: 120px;
     font-weight: bold;
     color: #FFFFFF;
-    /* background-color: #bebebe; */
     text-align: center;
     padding: 4px;
     text-decoration: none;
@@ -33,7 +32,7 @@ a:hover,
 a:active {
     background-color: #ffffff;
     color: #996600;
-}
+} */
 
 .aboutUs-modal{
     width: 130px;
@@ -60,3 +59,86 @@ a:active {
     width: 100%;
 }
 
+.menu {
+    font-size: 18px;
+    height: 100px
+}
+
+.menu li {
+    /*水平菜单*/
+    float: left;
+    list-style: none;
+    position: relative;
+    line-height: 100px;
+    /*把包含块移动li元素*/
+}
+
+.menu a {
+    display: block;
+    position:relative;
+    height: 100px;
+    width: 120px;
+    
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu a:hover,
+a:active {
+    background-color: #ffffff;
+    color: #996600;
+}
+a:link,
+a:visited {
+    display: block;
+    width: 120px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/*新增的二级菜单部分*/
+
+.menu ul ul {
+    visibility: hidden;
+    
+    position: absolute;
+    left: 0px;
+    top: 100px;
+}
+
+.menu ul ul li a{
+    line-height: 35px;
+    height: 35px;
+    color: #000000;
+}
+.menu ul ul li
+a:hover,
+a:active {
+    background-color: #996633;
+    color: #fff;
+}
+
+
+
+.menu ul li:hover ul,
+
+/*非IE6*/
+
+.menu ul a:hover ul {
+    /*IE6*/
+    visibility: visible;
+}
+
+.menu ul ul li {
+    clear: both;
+    /*垂直显示*/
+    text-align: left;
+}
+
+.menu ul li a strong {
+    color: aqua;
+}

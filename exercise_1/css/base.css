@@ -448,6 +448,10 @@ acronym {
     margin-left: 200px;
 }
 
+.ml255 {
+    margin-left: 255px;
+}
+
 .mr5 {
     margin-right: 5px;
 }

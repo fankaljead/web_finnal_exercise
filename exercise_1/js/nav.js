@@ -8,6 +8,10 @@ function changePage(name) {
     var content = document.getElementById('content');//获取内容 div
     // frame.src = allSrc[name];
     frame.src = '../html/' + name + '.html';
+    if(isIE()){
+        document.getElementById('frame').src = '../html/' + name + '.html'; 
+        console.log("kdsfhjh")
+    }
 
     switch (name) {
         //首页
@@ -27,9 +31,17 @@ function changePage(name) {
             content.style.height = '1415px';
             break;
         default:
+            content.style.height = '0';
             break;
     }
 
+}
+
+function isIE() { //ie?
+    if (!!window.ActiveXObject || "ActiveXObject" in window)
+        return true;
+    else
+        return false;
 }
 
 $(document).ready(function () {
@@ -48,7 +60,7 @@ $(document).ready(function () {
 
     
 
-    setInterval(() =>{
+    setInterval(function(){
         $(".aboutUs-modal").hide();       
     }, 5000);
 
