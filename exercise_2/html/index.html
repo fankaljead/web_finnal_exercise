@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生信息管理系统</title>
+    <link rel="stylesheet" href="../css/base.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="tc">学生信息管理系统</h1>
+    </div>
+
+    <div class="main">
+
+        <div class="main-searchBar">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                新增
+            </button>
+            <button type="button" class="btn btn-primary" onclick="deleteThroughCheckbox()">
+                删除
+            </button>
+            <input type="text" class="form-control" id="myInput" onkeyup="search()" placeholder="搜索...">
+        </div>
+
+        <!-- 新增模态框 -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+        
+                    <!-- 模态框头部 -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">新增学生信息</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+        
+                    <!-- 模态框主体 -->
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="student_id">学号:</label>
+                                <input type="text" class="form-control" id="student_id" placeholder="请输入学号">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_name">姓名:</label>
+                                <input type="text" class="form-control" id="student_name" placeholder="请输入姓名">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_college">学院:</label>
+                                <input type="text" class="form-control" id="student_college" placeholder="请输入学院">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_major">专业:</label>
+                                <input type="text" class="form-control" id="student_major" placeholder="请输入专业">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_grade">年级:</label>
+                                <input type="text" class="form-control" id="student_grade" placeholder="请输入年级">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_clazz">班级:</label>
+                                <input type="text" class="form-control" id="student_clazz" placeholder="请输入班级">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_age">年龄:</label>
+                                <input type="text" class="form-control" id="student_age" placeholder="请输入年龄">
+                            </div>                           
+                            
+                        </form>
+                    </div>
+        
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addStudent()">确定</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cleanAddInput()">关闭</button>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+
+        <!-- 修改模态框 -->
+        <div class="modal fade" id="myModal_modify">
+            <div class="modal-dialog">
+                <div class="modal-content">
+        
+                    <!-- 模态框头部 -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">修改学生信息</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+        
+                    <!-- 模态框主体 -->
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="student_id">学号:</label>
+                                <input type="text" class="form-control" id="student_id_m" placeholder="请输入学号">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_name">姓名:</label>
+                                <input type="text" class="form-control" id="student_name_m" placeholder="请输入姓名">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_college">学院:</label>
+                                <input type="text" class="form-control" id="student_college_m" placeholder="请输入学院">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_major">专业:</label>
+                                <input type="text" class="form-control" id="student_major_m" placeholder="请输入专业">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_grade">年级:</label>
+                                <input type="text" class="form-control" id="student_grade_m" placeholder="请输入年级">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_clazz">班级:</label>
+                                <input type="text" class="form-control" id="student_clazz_m" placeholder="请输入班级">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_age">年龄:</label>
+                                <input type="text" class="form-control" id="student_age_m" placeholder="请输入年龄">
+                            </div>
+        
+                        </form>
+                    </div>
+        
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="modifyStudent()">确定</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cleanAddInput()">关闭</button>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+
+        <!-- 查看模态框 -->
+        <div class="modal fade" id="myModal_watch">
+            <div class="modal-dialog">
+                <div class="modal-content">
+        
+                    <!-- 模态框头部 -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">查看学生信息</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+        
+                    <!-- 模态框主体 -->
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="student_id">学号:</label>
+                                <input type="text" class="form-control" id="student_id_w" placeholder="请输入学号" disabled="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_name">姓名:</label>
+                                <input type="text" class="form-control" id="student_name_w" placeholder="请输入姓名" disabled="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_college">学院:</label>
+                                <input type="text" class="form-control" id="student_college_w" placeholder="请输入学院" disabled="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_major">专业:</label>
+                                <input type="text" class="form-control" id="student_major_w" placeholder="请输入专业" disabled="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_grade">年级:</label>
+                                <input type="text" class="form-control" id="student_grade_w" placeholder="请输入年级" disabled="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_clazz">班级:</label>
+                                <input type="text" class="form-control" id="student_clazz_w" placeholder="请输入班级" disabled="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="student_age">年龄:</label>
+                                <input type="text" class="form-control" id="student_age_w" placeholder="请输入年龄" disabled="true">
+                            </div>
+        
+                        </form>
+                    </div>
+        
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="main-table">
+            <table class="table table-hover" id="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" name="" id="is_selected_all" onclick="selectAll()">
+                        </th>
+                        <th>序号</th>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>学院</th>
+                        <th>专业</th>
+                        <th>年级</th>
+                        <th>班级</th>
+                        <th>年龄</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+
+                </tbody>
+            </table>
+            
+            <!-- 表格导航 -->
+            <div class="pagination fr">
+                <ul class="pagination pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">上一页</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">下一页</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+</html>
