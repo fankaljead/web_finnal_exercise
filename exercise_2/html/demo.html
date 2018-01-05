@@ -1,221 +1,39 @@
-<!--  --><html>
-
-<head>
-    <style>
-        #myInput {
-            width: 100%;
-            font-size: 16px;
-            padding: 12px 20px 12px 40px;
-            border: 1px solid #ddd;
-            margin-bottom: 12px;
-        }
-
-        #myTable {
-            border-collapse: collapse;
-            width: 100%;
-            border: 1px solid #ddd;
-            font-size: 18px;
-        }
-
-        #myTable th,
-        #myTable td {
-            text-align: left;
-            padding: 12px;
-        }
-
-        #myTable tr {
-            border-bottom: 1px solid #ddd;
-        }
-
-        #myTable tr.header,
-        #myTable tr:hover {
-            background-color: #f1f1f1;
-        }
-    </style>
-</head>
-
-<body>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜索...">
-    <table id="myTable">
-        <tr class="header">
-            <th style="width:60%;">项目名称</th>
-            <th style="width:40%;">时间</th>
+<table id="tblCustomers" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+        <tr>
+            <th style="width: 90px">Customer Id</th>
+            <th style="width: 120px">Name</th>
+            <th style="width: 90px">Country</th>
         </tr>
         <tr>
-            <td>redPackets</td>
-            <td>2017.2.6</td>
+            <td>1</td>
+            <td>John Hammond</td>
+            <td>United States</td>
         </tr>
         <tr>
-            <td>traffic</td>
-            <td>2016.12.25</td>
+            <td>2</td>
+            <td>Mudassar Khan</td>
+            <td>India</td>
         </tr>
         <tr>
-            <td>creditCard</td>
-            <td>2017.1.18</td>
+            <td>3</td>
+            <td>Suzanne Mathews</td>
+            <td>France</td>
         </tr>
         <tr>
-            <td>returnMoney</td>
-            <td>2016.11.25</td>
+            <td>4</td>
+            <td>Robert Schidner</td>
+            <td>Russia</td>
         </tr>
-    </table>
-    <script> 
-        function myFunction() {
-            // 声明变量 
-            var input, filter, table, tr, td, i;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            // 循环表格每一行，查找匹配项 
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        } 
-    </script>
-</body>
-
-</html>
-
-扩展：模拟通讯录搜索提示
-
-<html>
-
-<head>
-    <style>
-        #myInput {
-            width: 100%;
-            font-size: 16px;
-            /* 加大字体 */
-            padding: 12px 20px 12px 40px;
-            border: 1px solid #ddd;
-            margin-bottom: 12px;
-        }
-
-        #myUL {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #myUL li a {
-            border: 1px solid #ddd;
-            /* 链接添加边框 */
-            margin-top: -1px;
-            background-color: #f6f6f6;
-            padding: 12px;
-            text-decoration: none;
-            font-size: 18px;
-            color: black;
-            display: block;
-        }
-
-        #myUL li a.header {
-            background-color: #5587A2;
-            cursor: default;
-        }
-
-        #myUL li a:hover:not(.header) {
-            background-color: #eee;
-        }
-    </style>
-</head>
-
-<body>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜索...">
-
-    <ul id="myUL">
-        <li>
-            <a href="#" class="header">A</a>
-        </li>
-        <li>
-            <a href="#">Angel</a>
-        </li>
-        <li>
-            <a href="#">Adobe</a>
-        </li>
-        <li>
-            <a href="#">Anne</a>
-        </li>
-
-        <li>
-            <a href="#" class="header">B</a>
-        </li>
-        <li>
-            <a href="#">Betty</a>
-        </li>
-        <li>
-            <a href="#">Bella</a>
-        </li>
-        <li>
-            <a href="#">Brown</a>
-        </li>
-
-        <li>
-            <a href="#" class="header">C</a>
-        </li>
-        <li>
-            <a href="#">Calvin</a>
-        </li>
-        <li>
-            <a href="#">Chris</a>
-        </li>
-        <li>
-            <a href="#">Claire</a>
-        </li>
-
-        <li>
-            <a href="#" class="header">D</a>
-        </li>
-        <li>
-            <a href="#">David</a>
-        </li>
-        <li>
-            <a href="#">Daniel</a>
-        </li>
-        <li>
-            <a href="#">Dora</a>
-        </li>
-
-        <li>
-            <a href="#" class="header">E</a>
-        </li>
-        <li>
-            <a href="#">Emily</a>
-        </li>
-        <li>
-            <a href="#">Elena</a>
-        </li>
-        <li>
-            <a href="#">Eufemia</a>
-        </li>
-    </ul>
-    <script> 
-        function myFunction() {
-            // 声明变量 
-            var input, filter, ul, li, a, i;
-            input = document.getElementById('myInput');
-            filter = input.value.toUpperCase();
-            ul = document.getElementById("myUL");
-            li = ul.getElementsByTagName('li');
-
-            // 循环所有列表，查找匹配项 
-            for (i = 0; i < li.length; i++) {
-                a = li[i].getElementsByTagName("a")[0];
-                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-                }
-            }
-        } 
-    </script>
-</body>
-
-</html>
+    </tbody>
+</table>
+<hr />
+<input type="button" id="btnDelete" value="Delete Rows" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnDelete").click(function () {
+            $("#tblCustomers").find("tr:not(:first)").remove();
+        });
+    });
+</script>

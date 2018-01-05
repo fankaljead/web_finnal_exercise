@@ -16,37 +16,46 @@ function Studtent(student_id, name, college, major, grade, clazz, age) {
 var students = [new Studtent("1", "Mike", "Computer", "CS", 2016, 2, 20), 
     new Studtent("2", "Tom", "Computer", "CS", 2015, 2, 20), 
     new Studtent("3", "James", "Sport", "NBA", 2003, 2, 33), 
-    new Studtent("2", "Durant", "Sport", "NBA", 2007, 2, 29)];
+    new Studtent("4", "Curry", "Sport", "NBA", 2007, 2, 29), 
+    new Studtent("5", "Leonard", "Sport", "NBA", 2007, 2, 29),
+    new Studtent("6", "Westbrook", "Sport", "NBA", 2007, 2, 29),
+    new Studtent("7", "Davis", "Sport", "NBA", 2007, 2, 29)
+        ];
 var row = 1;
 var tempModify;//全局临时修改的学生信息
 var deleteArray = [];//用checkbox删除的行数数组
+var page = 1;//当前页码
+var pageSize = 4;//每页展示大小
 
-initial();
+initial(page);
 
-function initial() {
+function initial(page) {
     row = 1;
-   
-    
-    for (let index = 0; index < students.length; index++) {
-        var x = document.getElementById('table').insertRow(); //获取第一行对象
+    clearTable();
+    console.log((page - 1) * pageSize || 0, page * pageSize)
+    for (let index = 0|| (page-1)*pageSize; index < page*pageSize; index++) {
+        if(students[index] != undefined){
+            var x = document.getElementById('table').insertRow(); //获取第一行对象
 
-        if (row % 2 == 0) {
-            x.setAttribute("class", 'table-primary');
-        } else {
-            x.setAttribute("class", 'table-warning');
+            if (row % 2 == 0) {
+                x.setAttribute("class", 'table-primary');
+            } else {
+                x.setAttribute("class", 'table-warning');
+            }
+            x.insertCell(0).innerHTML = "<input type='checkbox' name='select'/>";
+            x.insertCell(1).innerHTML = row++;
+            x.insertCell(2).innerHTML = students[index].student_id;
+            x.insertCell(3).innerHTML = students[index].name;
+            x.insertCell(4).innerHTML = students[index].college;
+            x.insertCell(5).innerHTML = students[index].major;
+            x.insertCell(6).innerHTML = students[index].grade;
+            x.insertCell(7).innerHTML = students[index].clazz;
+            x.insertCell(8).innerHTML = students[index].age;
+            x.insertCell(9).innerHTML = "<a href='#' data-toggle='modal' data-target='#myModal_watch' onclick='watch(this)'>查看</a> &nbsp;&nbsp;&nbsp;" +
+                "<a href='#' data-toggle='modal' data-target='#myModal_modify' onclick='modifyByRow(this)'>修改</a>&nbsp;&nbsp;&nbsp;" +
+                "<a href='#' onclick='deleteByRow(this)'>删除</a>";
         }
-        x.insertCell(0).innerHTML = "<input type='checkbox' name='select'/>";
-        x.insertCell(1).innerHTML = row++;
-        x.insertCell(2).innerHTML = students[index].student_id;
-        x.insertCell(3).innerHTML = students[index].name;
-        x.insertCell(4).innerHTML = students[index].college;
-        x.insertCell(5).innerHTML = students[index].major;
-        x.insertCell(6).innerHTML = students[index].grade;
-        x.insertCell(7).innerHTML = students[index].clazz;
-        x.insertCell(8).innerHTML = students[index].age;
-        x.insertCell(9).innerHTML = "<a href='#' data-toggle='modal' data-target='#myModal_watch' onclick='watch(this)'>查看</a> &nbsp;&nbsp;&nbsp;" + 
-                                    "<a href='#' data-toggle='modal' data-target='#myModal_modify' onclick='modifyByRow(this)'>修改</a>&nbsp;&nbsp;&nbsp;" +
-                                    "<a href='#' onclick='deleteByRow(this)'>删除</a>";
+        
     }
 }
 
@@ -116,12 +125,25 @@ function cleanAddInput() {
 
 //删除
 function deleteByRow(r) {
-    var temp_r = getRow(r);
-    document.getElementById('table').deleteRow(getRow(r));
-    console.log("delete temp_r(r):", temp_r)
+    swal({
+        title: "您确定要删除吗？",
+        text: "您确定要删除这条数据？",
+        type: "warning",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        animation: 'slide-from-top',
+        confirmButtonText: "是的，我要删除",
+        confirmButtonColor: "#ec6c62"
+    }, function () {
+        var temp_r = getRow(r);
+        document.getElementById('table').deleteRow(getRow(r));
+        console.log("delete temp_r(r):", temp_r)
+
+        students.splice(temp_r - 1, 1);
+        console.log("delete students:", students)
+        swal.close() 
+    });
     
-    students.splice(temp_r-1, 1);
-    console.log("delete students:", students)
 }
 
 
@@ -291,3 +313,62 @@ function checkInputIllegal(student_id, name, college, major, grade, clazz, age) 
 
     return false;
 }
+
+
+function initialPagination() {
+    var pagination = document.getElementById("pagination_ul");
+    var pagination_li = "";
+    pagination_li += '<li class="page-item">' +
+                    '<a class="page-link" href="#" onclick="lastPage()">上一页</a>'+
+                     '</li>';
+    for (let index = 1; index <= Math.ceil(students.length/pageSize); index++) {
+
+        if(index == page){
+            pagination_li += '<li class="page-item" '+ '>' +
+                '<a class="page-link" href="#" onclick=' + '"changePage(' + index + ')"' + "style='background: #ece9ef'"  + '>' + index + '</a>' +
+                '</li>';
+        }else{
+            pagination_li += '<li class="page-item">' +
+                '<a class="page-link" href="#" onclick=' + '"changePage(' + index + ')"' + '>' + index + '</a>' +
+                '</li>';
+        }
+
+        
+    }
+    pagination_li += '<li class="page-item">' +
+        '<a class="page-link" href="#" onclick="nextPage()">下一页</a>' +
+        '</li>';
+    pagination.innerHTML = pagination_li;
+    
+}
+
+//点击页面换页
+function changePage(index) {
+    page = index;
+    initialPagination();
+    clearTable()
+    initial(page);
+}
+
+//上一页
+function lastPage() {
+    clearTable()
+}
+
+//下一页
+function nextPage() {
+    
+}
+
+function clearTable() {
+    // for (let index = 0; index < document.getElementById('table').r; index++) {
+    //     console.log(document.getElementById('table').deleteRow(index))
+        
+    // }
+    // var x = document.getElementById("table");
+    $("#table:not(:first)").remove();
+    console.log("clear")
+}
+
+initialPagination(); 
+

@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>学生信息管理系统</title>
     <link rel="stylesheet" href="../css/base.css">
+    <script type="text/javascript" src="../js/sweetalert-dev.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/sweetalert.css" />
+
 </head>
 <body>
     <div class="header">
@@ -210,7 +213,7 @@
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                     
 
                 </tbody>
@@ -218,7 +221,7 @@
             
             <!-- 表格导航 -->
             <div class="pagination fr">
-                <ul class="pagination pagination">
+                <ul class="pagination pagination" id="pagination_ul">
                     <li class="page-item">
                         <a class="page-link" href="#">上一页</a>
                     </li>
@@ -236,7 +239,6 @@
                     </li>
                 </ul>
             </div>
-            
         </div>
         
     </div>
