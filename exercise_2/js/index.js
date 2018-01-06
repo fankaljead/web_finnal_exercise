@@ -19,23 +19,28 @@ var students = [new Studtent("1", "Mike", "Computer", "CS", 2016, 2, 20),
     new Studtent("4", "Curry", "Sport", "NBA", 2007, 2, 29), 
     new Studtent("5", "Leonard", "Sport", "NBA", 2007, 2, 29),
     new Studtent("6", "Westbrook", "Sport", "NBA", 2007, 2, 29),
-    new Studtent("7", "Davis", "Sport", "NBA", 2007, 2, 29)
+    new Studtent("7", "Davis", "Sport", "NBA", 2007, 2, 29),
+    new Studtent("8", "Paul", "Sport", "NBA", 2007, 2, 29),
+    new Studtent("9", "Embiid", "Sport", "NBA", 2007, 2, 29)
         ];
 var row = 1;
 var tempModify;//全局临时修改的学生信息
 var deleteArray = [];//用checkbox删除的行数数组
+var searchData;//搜索数据
+var searchData_Students = [];//搜索到的学生数组
 var page = 1;//当前页码
-var pageSize = 4;//每页展示大小
+var pageSize = 7;//每页展示大小
 
 initial(page);
 
 function initial(page) {
+    console.log(students || searchData_Students)
     row = 1;
     clearTable();
     console.log((page - 1) * pageSize || 0, page * pageSize)
     for (let index = 0|| (page-1)*pageSize; index < page*pageSize; index++) {
         if(students[index] != undefined){
-            var x = document.getElementById('table').insertRow(); //获取第一行对象
+            var x = document.getElementById('tbody').insertRow(); //获取第一行对象
 
             if (row % 2 == 0) {
                 x.setAttribute("class", 'table-primary');
@@ -57,6 +62,7 @@ function initial(page) {
         }
         
     }
+    initialPagination(); 
 }
 
 //------新增学生信息----------
@@ -78,7 +84,7 @@ function addStudent() {
          //将新增的学生信息加入全局数组
         students.push(temp);
 
-        var x = document.getElementById('table').insertRow(); //获取第一行对象
+        var x = document.getElementById('tbody').insertRow(); //获取第一行对象
 
         if (row % 2 == 0) {
             x.setAttribute("class", 'table-primary');
@@ -138,8 +144,9 @@ function deleteByRow(r) {
         var temp_r = getRow(r);
         document.getElementById('table').deleteRow(getRow(r));
         console.log("delete temp_r(r):", temp_r)
-
+        
         students.splice(temp_r - 1, 1);
+        initial(page);
         console.log("delete students:", students)
         swal.close() 
     });
@@ -183,12 +190,12 @@ function modifyStudent() {
     console.log("Students:", students)
 
      $("#table tr:not(:first)").html("");
-    initial();
+    initial(page);
 }
 
 function addAStudent(s) {
     console.log("s:",s)
-    var x = document.getElementById('table').insertRow(); //获取第一行对象
+    var x = document.getElementById('tbody').insertRow(); //获取第一行对象
 
     if (row % 2 == 0) {
         x.setAttribute("class", 'table-primary');
@@ -236,6 +243,7 @@ function deleteThroughCheckbox() {
     //那么现在来检测s的值就知道选中的复选框的值了 
     // alert(s == '' ? '你还没有选择任何内容！' : s);
     initialCheckbox();
+    initial(page);
 }
 
 function jqchk() { //jquery获取复选框值 
@@ -287,10 +295,14 @@ function watch(r) {
 
 //搜索功能
 function search() {
+    searchData_Students = [];
     // 声明变量 
     var input, filter, ul, li, a, i;
     input = document.getElementById('myInput');
     filter = input.value.toUpperCase();
+
+    searchData = filter;//搜索数据临时保存
+
     // ul = document.getElementById("myUL");
     tr = document.getElementsByTagName('tr');
 
@@ -299,10 +311,15 @@ function search() {
         
         if (students[i].toWatchString().toUpperCase().indexOf(filter) > -1) {
             tr[i+1].style.display = "";
+            // console.log(i+1);
+            searchData_Students.push(students[i])
         } else {
             tr[i+1].style.display = "none";
         }
+        
     }
+    console.log(searchData_Students)
+    
 }
 
 //判断输入是否合法
@@ -352,11 +369,17 @@ function changePage(index) {
 
 //上一页
 function lastPage() {
-    clearTable()
+    if(page > 1){
+        initial(--page);        
+    }
 }
 
 //下一页
 function nextPage() {
+    
+    if (page < Math.ceil(students.length / pageSize)){
+        initial(++page);   
+    }
     
 }
 
@@ -366,9 +389,10 @@ function clearTable() {
         
     // }
     // var x = document.getElementById("table");
-    $("#table:not(:first)").remove();
+    // $("#table:not(:first)").remove();
+    $("tbody").empty()
     console.log("clear")
 }
 
-initialPagination(); 
+
 

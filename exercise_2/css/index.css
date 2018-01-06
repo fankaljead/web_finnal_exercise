@@ -1,0 +1,29 @@
+body{
+    background-image: url(../image/back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    -moz-background-size:100% 100%;
+}
+.header{
+    color: #fff;
+    letter-spacing: 20px;
+}
+.main{
+   
+}
+
+.main-table {
+    margin: auto;
+    width: 60%;
+}
+
+.main-searchBar{
+    margin-top: 80px;
+    margin: auto;
+    width: 60%;
+}
+
+#myInput{
+    width: 30%;
+    float: right;
+}
